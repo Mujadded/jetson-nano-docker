@@ -8,7 +8,7 @@ ENV JUPYTER_PASSWORD=hudnano
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install notebook tensorboard ipywidgets jupyter_bbox_widget matplotlib && \
+RUN pip3 install easydict notebook tensorboard ipywidgets jupyter_bbox_widget matplotlib && \
     jupyter notebook --generate-config && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter nbextension enable --py jupyter_bbox_widget
