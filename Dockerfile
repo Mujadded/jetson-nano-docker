@@ -8,7 +8,7 @@ ENV JUPYTER_PASSWORD=hudnano
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install notebook tensorboard ipywidgets jupyter_bbox_widget && \
+RUN pip3 install notebook tensorboard ipywidgets jupyter_bbox_widget matplotlib && \
     jupyter notebook --generate-config && \
     jupyter nbextension enable --py widgetsnbextension && \
     jupyter nbextension enable --py jupyter_bbox_widget
@@ -23,7 +23,7 @@ RUN git clone https://github.com/NVIDIA-AI-IOT/jetcam.git && \
     rm -rf jetcam
 
 RUN mkdir -p ${JUPYTER_WORKDIR}/object-detection
-COPY object-detection/* ${JUPYTER_WORKDIR}/object-detection/
+COPY object-detection/ ${JUPYTER_WORKDIR}/object-detection/
 
 RUN mkdir -p ${JUPYTER_WORKDIR}/classification
 COPY classification/* ${JUPYTER_WORKDIR}/classification
